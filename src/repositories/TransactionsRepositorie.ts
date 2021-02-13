@@ -5,5 +5,9 @@ interface Transaction {
 }
 
 export default class TransactionRepository {
-  private transactions = [];
+  private transactions: Array<Transaction> = [];
+
+  create (transaction: Transaction): Transaction {
+    
+  }
 }
