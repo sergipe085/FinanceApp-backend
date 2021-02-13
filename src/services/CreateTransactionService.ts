@@ -8,7 +8,11 @@ interface CreateInterfaceDTO {
 }
 
 export default class CreateTransactionService {
-  private transactionRepository = new TransactionRepository();
+  private transactionRepository: TransactionRepository;
+
+  constructor(transactionRepository: TransactionRepository) {
+    this.transactionRepository = transactionRepository;
+  }
 
   execute({title, value, type}: CreateInterfaceDTO): Transaction {
     const transaction = new Transaction(title, value, type);
