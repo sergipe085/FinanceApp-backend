@@ -8,7 +8,10 @@ const routes = Router();
 const transactionRepository = new TransactionRepository();
 
 routes.get('/', (req, res) => {
-  return res.json(transactionRepository.all());
+  const transactions = transactionRepository.all();
+  const balance = transactionRepository.getBalance();
+
+  return res.json({transactions, balance});
 });
 
 routes.post('/', (req, res) => {
